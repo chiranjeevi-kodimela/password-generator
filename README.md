@@ -45,12 +45,7 @@ That’s it!
 
 ---
 
-## 📷 Screenshot
 
-<!-- Add your screenshot here -->
-![App Screenshot](./screenshot.png)
-
----
 
 ## 🧠 License
 
@@ -67,5 +62,5 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 ## 🙋‍♂️ Author
 
 **Chiranjeevi Kodimela**  
-📧 [Your email or portfolio link]  
-🌐 [GitHub](https://github.com/your-username)
+📧 [chirukodimela@gmail.com]  
+🌐 [GitHub](https://github.com/chiranjeevi-kodimela)
