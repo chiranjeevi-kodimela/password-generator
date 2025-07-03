@@ -1,0 +1,181 @@
+* {
+    margin: 8px;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080808;
+    color: #fff;
+}
+
+.container {
+    margin: 0 auto;
+    margin-top: 5rem;
+    width: min(450px, 90%);
+    background: #5b71ff;
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.container p {
+    font-weight: 600;
+    font-size: 1.31rem;
+    padding: 1rem 1.75rem;
+    border-bottom: 1px solid #858bb2;
+}
+
+.wrapper {
+    margin: 1.25rem 1.75rem;
+}
+
+.input-box {
+    position: relative;
+    width: 85%;
+    height: 53px;
+    background: #2c2828;
+    border-radius: 4px;
+    border: 1px solid #ffffff;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.input-box input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.06rem;
+    width: 100%;
+    outline: none;
+    padding-right: 70px; /* space for copy button */
+}
+
+.input-box span {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    padding: 0 6px;
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.input-box span:hover {
+    background-color: #291d97;
+    color: #fff !important;
+}
+
+.pass-settings {
+    margin: 1.56rem 0 1.25rem;
+}
+
+.pass-settings .options {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.pass-settings .options .option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: calc(100% / 2);
+}
+
+.options .option:first-child input {
+    opacity: 0.7;
+}
+
+.options .option input {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+.options .option label {
+    cursor: pointer;
+    color: #000;
+    padding-left: 0.63rem;
+}
+
+.pass-settings input[type="checkbox"] {
+    accent-color: #0c8139;
+}
+
+.generate-btn {
+    width: 100%;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #1c2fc0;
+    font-size: 1.06rem;
+    padding: 0.94rem 0;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin: 0.94rem 0 1.3rem;
+    transition: background 0.2s ease;
+}
+
+.generate-btn:hover {
+    background: #46495e;
+}
+
+input[type="number"] {
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid #000;
+    font-size: 0.9rem;
+    margin-left: 8px;
+    width: 60px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 2rem auto;
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .container p {
+        font-size: 1.1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .wrapper {
+        margin: 1rem;
+    }
+
+    .input-box {
+        width: 100%;
+        padding-right: 1rem;
+    }
+
+    .pass-settings .options .option {
+        width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .generate-btn {
+        font-size: 1rem;
+        padding: 0.8rem 0;
+    }
+
+    input[type="number"] {
+        width: 50px;
+        font-size: 0.85rem;
+    }
+
+    .input-box span {
+        right: 10px;
+    }
+}
