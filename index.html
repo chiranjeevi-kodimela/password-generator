@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <p><b>Password Generator</b></p>
+        <div class="wrapper">
+            <div class="input-box">
+                <input id="password" type="text" disabled>
+                <span id="copy" onclick="copyPassword()">Copy</span>
+            </div>
+        <div class="pass-settings">
+            <label class="title">Password Settings</label>
+            <ul class="options">
+                <li class="option">
+                    <input checked id="lowercase" type="checkbox">
+                    <label for="lowercase">Lowercase(a-z)</label>
+                </li>
+                <li class="option">
+                    <input checked id="uppercase" type="checkbox">
+                    <label for="uppercase">Uppercase(A-Z)</label>
+                </li>
+                <li class="option">
+                    <input checked id="numbers" type="checkbox">
+                    <label for="numbers">Numbers(0-9)</label>
+                </li>
+                <li class="option">
+                    <input checked id="symbols" type="checkbox">
+                    <label for="symbols">Symbols(!@#_$^+)</label>
+                </li>
+                <li class="option">
+                    <input checked id="exc-duplicate" type="checkbox">
+                    <label for="exc-duplicate">Exclude Duplicate</label>
+                </li>
+                <li class="option">
+                    <input checked id="spaces" type="checkbox">
+                    <label for="spaces">Include Spaces</label>
+                </li>
+                <li class="option">
+                    <label for="length">Length:</label>
+                    <input type="number" id="length" min="4" max="64" value="12" style="width: 60px; margin-left: 10px;">
+                </li>
+            </ul>
+        </div>
+        <button class="generate-btn" id="generate" onclick="generatePassword()">Generate Password</button>
+        </div>
+    </div>
+</body>
+</html>
