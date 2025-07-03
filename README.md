@@ -2,6 +2,8 @@
 
 A simple and responsive web app to generate strong, customizable passwords. Built using HTML, CSS, and JavaScript.
 
+🔗 **Live Demo:** [lockmypassword.netlify.app](https://instant-passwords.netlify.app)
+
 ---
 
 ## 🚀 Features
@@ -44,8 +46,6 @@ That’s it!
 ```
 
 ---
-
-
 
 ## 🧠 License
 
