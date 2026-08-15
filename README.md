@@ -51,3 +51,99 @@ src/
 ├── App.jsx
 ├── App.css
 └── main.jsx
+
+
+## How It Works
+
+The application uses the browser's Web Crypto API to generate cryptographically stronger random values for selecting password characters.
+
+The password generation process:
+
+1. Selects the enabled character sets.
+2. Generates mandatory characters from each selected category.
+3. Fills the remaining password length with random characters.
+4. Prevents consecutive duplicate characters.
+5. Optionally prevents duplicate characters entirely.
+6. Shuffles the resulting password using the Fisher-Yates algorithm.
+
+## Password Strength
+
+The application estimates password strength using:
+
+- Password length
+- Lowercase characters
+- Uppercase characters
+- Numbers
+- Symbols
+- Spaces
+- Character uniqueness
+
+The strength indicator classifies passwords as:
+
+- Weak
+- Fair
+- Strong
+- Very Strong
+
+> The strength indicator is a heuristic and should not be treated as a cryptographic security guarantee.
+
+## Running Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/chiranjeevi-kodimela/password-generator.git
+```
+
+Move into the project:
+
+```bash
+cd password-generator
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the local URL shown by Vite.
+
+## Production Build
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Development
+
+The React version was developed on a separate branch:
+
+```text
+react-upgrade
+```
+
+The original implementation was preserved on the `Main` branch during development.
+
+## Future Improvements
+
+- Entropy-based strength estimation
+- Password history
+- Dark/light theme
+- Accessibility improvements
+- Password generation presets
+- Deployment and CI/CD
