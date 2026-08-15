@@ -1,43 +1,34 @@
+import { calculatePasswordStrength } from "../utils/passwordStrength";
+
 function PasswordStrength({ password }) {
+  const strength = calculatePasswordStrength(password);
+
   if (!password) {
     return null;
   }
 
-  let score = 0;
-
-  if (password.length >= 8) score++;
-  if (password.length >= 12) score++;
-  if (/[a-z]/.test(password)) score++;
-  if (/[A-Z]/.test(password)) score++;
-  if (/[0-9]/.test(password)) score++;
-  if (/[^a-zA-Z0-9]/.test(password)) score++;
-
-  let label = "Weak";
-
-  if (score >= 5) {
-    label = "Very Strong";
-  } else if (score >= 4) {
-    label = "Strong";
-  } else if (score >= 3) {
-    label = "Fair";
-  }
+  const activeBars = Math.ceil(strength.score / 3);
 
   return (
     <div
-      className={`strength strength-${label.toLowerCase().replace(" ", "-")}`}
+      className={`strength strength-${strength.label
+        .toLowerCase()
+        .replace(" ", "-")}`}
     >
       <div className="strength-header">
         <span>Password Strength</span>
-        <strong>{label}</strong>
+
+        <strong>{strength.label}</strong>
       </div>
 
       <div className="strength-bar">
         {Array.from({ length: 4 }).map((_, index) => (
-          <span
-            key={index}
-            className={index < Math.ceil(score / 2) ? "active" : ""}
-          />
+          <span key={index} className={index < activeBars ? "active" : ""} />
         ))}
+      </div>
+
+      <div className="strength-details">
+        <span>{strength.percentage}% strength</span>
       </div>
     </div>
   );

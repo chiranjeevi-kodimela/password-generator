@@ -12,6 +12,7 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+
   background: #0f172a;
   color: #f8fafc;
 }
@@ -21,11 +22,21 @@ input {
   font: inherit;
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   App Layout
+========================= */
+
 .app {
   min-height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 32px 20px;
 }
 
@@ -33,6 +44,10 @@ input {
   width: 100%;
   max-width: 760px;
 }
+
+/* =========================
+   Header
+========================= */
 
 .header {
   text-align: center;
@@ -43,48 +58,72 @@ input {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 3px;
+
   margin-bottom: 10px;
-  opacity: 0.6;
+
+  color: #94a3b8;
 }
 
 .header h1 {
   font-size: clamp(32px, 5vw, 48px);
   line-height: 1.1;
+
   margin-bottom: 12px;
 }
 
 .subtitle {
   color: #94a3b8;
   font-size: 16px;
+  line-height: 1.6;
 }
+
+/* =========================
+   Generator Card
+========================= */
 
 .generator-card {
   background: #1e293b;
+
   border: 1px solid #334155;
   border-radius: 24px;
+
   padding: 24px;
+
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 }
+
+/* =========================
+   Password Display
+========================= */
 
 .password-box {
   display: flex;
   gap: 10px;
+
   padding: 8px;
+
   background: #0f172a;
+
   border: 1px solid #334155;
   border-radius: 16px;
-  margin-bottom: 28px;
+
+  margin-bottom: 24px;
 }
 
 .password-box input {
   flex: 1;
   min-width: 0;
+
   border: none;
   outline: none;
+
   background: transparent;
   color: #f8fafc;
+
   padding: 12px;
+
   font-size: 18px;
+  letter-spacing: 0.5px;
 }
 
 .password-box input::placeholder {
@@ -94,140 +133,37 @@ input {
 .password-box button {
   border: none;
   border-radius: 10px;
+
   padding: 0 18px;
+
   background: #f8fafc;
   color: #0f172a;
+
   font-weight: 700;
+
   cursor: pointer;
-}
 
-.settings {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.section-heading,
-.length-label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.section-heading h2 {
-  font-size: 18px;
-}
-
-.section-heading span {
-  color: #94a3b8;
-  font-size: 14px;
-}
-
-.length-control {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.length-label label {
-  color: #cbd5e1;
-}
-
-.length-label strong {
-  font-size: 20px;
-}
-
-.length-control input[type="range"] {
-  width: 100%;
-  accent-color: #f8fafc;
-  cursor: pointer;
-}
-
-.options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.option {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 10px;
-  padding: 15px;
-  background: #0f172a;
-  border: 1px solid #334155;
-  border-radius: 12px;
-  cursor: pointer;
   transition:
-    border-color 0.2s,
-    transform 0.2s;
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.option:hover {
-  border-color: #64748b;
+.password-box button:hover:not(:disabled) {
   transform: translateY(-1px);
 }
 
-.option input {
-  width: 17px;
-  height: 17px;
-  accent-color: #f8fafc;
-  cursor: pointer;
-}
-
-.option span {
-  font-weight: 600;
-}
-
-.option small {
-  color: #64748b;
-}
-
-.generate-button {
-  width: 100%;
-  border: none;
-  border-radius: 12px;
-  padding: 16px;
-  background: #f8fafc;
-  color: #0f172a;
-  font-weight: 800;
-  cursor: pointer;
-  transition:
-    transform 0.2s,
-    opacity 0.2s;
-}
-
-.generate-button:hover {
-  transform: translateY(-2px);
-}
-
-.generate-button:active {
+.password-box button:active:not(:disabled) {
   transform: translateY(0);
 }
 
-@media (max-width: 600px) {
-  .app {
-    padding: 20px 14px;
-  }
-
-  .generator-card {
-    padding: 16px;
-    border-radius: 18px;
-  }
-
-  .options {
-    grid-template-columns: 1fr;
-  }
-
-  .password-box {
-    flex-direction: column;
-  }
-
-  .password-box button {
-    min-height: 44px;
-  }
+.password-box button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
+
+/* =========================
+   Password Strength
+========================= */
 
 .strength {
   margin-bottom: 24px;
@@ -237,6 +173,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   margin-bottom: 10px;
 }
 
@@ -249,21 +186,33 @@ input {
   font-size: 14px;
 }
 
+/* Strength bars */
+
 .strength-bar {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
+
   gap: 6px;
 }
 
 .strength-bar span {
   height: 6px;
+
   border-radius: 10px;
+
   background: #334155;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
 .strength-bar span.active {
   background: #f8fafc;
 }
+
+/* Strength labels */
 
 .strength-weak .strength-header strong {
   color: #fb7185;
@@ -281,11 +230,281 @@ input {
   color: #22d3ee;
 }
 
+/* =========================
+   Error Message
+========================= */
+
 .error-message {
   padding: 12px 14px;
+
   margin-bottom: 20px;
+
   border-radius: 10px;
+
   background: #451a1a;
   color: #fca5a5;
+
   font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================
+   Settings
+========================= */
+
+.settings {
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+/* Section heading */
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-heading h2 {
+  font-size: 18px;
+}
+
+.section-heading span {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* =========================
+   Password Length
+========================= */
+
+.length-control {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.length-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.length-label label {
+  color: #cbd5e1;
+}
+
+.length-label strong {
+  font-size: 20px;
+}
+
+/* Range slider */
+
+.length-control input[type="range"] {
+  width: 100%;
+
+  accent-color: #f8fafc;
+
+  cursor: pointer;
+}
+
+/* =========================
+   Character Options
+========================= */
+
+.options {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+.option {
+  display: grid;
+
+  grid-template-columns: auto 1fr auto;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 15px;
+
+  background: #0f172a;
+
+  border: 1px solid #334155;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.option:hover {
+  border-color: #64748b;
+
+  transform: translateY(-1px);
+}
+
+.option input {
+  width: 17px;
+  height: 17px;
+
+  accent-color: #f8fafc;
+
+  cursor: pointer;
+}
+
+.option span {
+  font-weight: 600;
+}
+
+.option small {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* =========================
+   Generate Button
+========================= */
+
+.generate-button {
+  width: 100%;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 16px;
+
+  background: #f8fafc;
+  color: #0f172a;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.generate-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(248, 250, 252, 0.12);
+}
+
+.generate-button:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   Focus Accessibility
+========================= */
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #f8fafc;
+  outline-offset: 3px;
+}
+
+.option:has(input:focus-visible) {
+  border-color: #f8fafc;
+}
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+@media (max-width: 600px) {
+  .app {
+    padding: 20px 14px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 34px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .generator-card {
+    padding: 16px;
+
+    border-radius: 18px;
+  }
+
+  .password-box {
+    flex-direction: column;
+  }
+
+  .password-box input {
+    font-size: 16px;
+  }
+
+  .password-box button {
+    min-height: 44px;
+  }
+
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .option {
+    padding: 14px;
+  }
+}
+
+.strength-details {
+  margin-top: 8px;
+
+  display: flex;
+  justify-content: flex-end;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+/* =========================
+   Very Small Screens
+========================= */
+
+@media (max-width: 380px) {
+  .app {
+    padding: 16px 10px;
+  }
+
+  .header h1 {
+    font-size: 30px;
+  }
+
+  .generator-card {
+    padding: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: 16px;
+  }
+
+  .section-heading span {
+    font-size: 12px;
+  }
 }
