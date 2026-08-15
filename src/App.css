@@ -130,14 +130,19 @@ button {
   color: #64748b;
 }
 
-.password-box button {
+.password-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.password-actions button {
   border: none;
   border-radius: 10px;
 
-  padding: 0 18px;
+  min-height: 42px;
 
-  background: #f8fafc;
-  color: #0f172a;
+  padding: 0 14px;
 
   font-weight: 700;
 
@@ -145,7 +150,39 @@ button {
 
   transition:
     transform 0.2s ease,
-    opacity 0.2s ease;
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.password-actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.password-actions button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.password-actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.icon-button {
+  background: #334155;
+  color: #f8fafc;
+}
+
+.icon-button:hover:not(:disabled) {
+  background: #475569;
+}
+
+.copy-button {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.copy-button:hover:not(:disabled) {
+  box-shadow: 0 6px 16px rgba(248, 250, 252, 0.12);
 }
 
 .password-box button:hover:not(:disabled) {
@@ -464,6 +501,15 @@ input:focus-visible {
     min-height: 44px;
   }
 
+  .password-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+  }
+
+  .password-actions button {
+    min-height: 44px;
+  }
+
   .options {
     grid-template-columns: 1fr;
   }
@@ -473,6 +519,23 @@ input:focus-visible {
   }
 }
 
+.password-box button {
+  border: none;
+  border-radius: 10px;
+
+  padding: 0 18px;
+
+  background: #f8fafc;
+  color: #0f172a;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
 .strength-details {
   margin-top: 8px;
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { generatePassword } from "./utils/passwordGenerator";
 
 import PasswordDisplay from "./components/PasswordDisplay";
@@ -60,9 +60,6 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    handleGenerate();
-  }, []);
 
   return (
     <main className="app">
@@ -82,6 +79,7 @@ function App() {
             password={password}
             copied={copied}
             onCopy={handleCopy}
+            onGenerate={handleGenerate}
           />
 
           <PasswordStrength password={password} />
