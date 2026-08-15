@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { generatePassword } from "./utils/passwordGenerator";
+
+import PasswordDisplay from "./components/PasswordDisplay";
+import PasswordOptions from "./components/PasswordOptions";
 import PasswordStrength from "./components/PasswordStrength";
 
 function App() {
@@ -15,9 +18,7 @@ function App() {
   });
 
   const [password, setPassword] = useState("");
-
   const [error, setError] = useState("");
-
   const [copied, setCopied] = useState(false);
 
   const handleOptionChange = (option) => {
@@ -77,123 +78,23 @@ function App() {
         </header>
 
         <section className="generator-card">
-          <div className="password-box">
-            <input
-              type="text"
-              value={password}
-              placeholder="Your password will appear here"
-              readOnly
-            />
-
-            <button type="button" onClick={handleCopy} disabled={!password}>
-              {copied ? "Copied!" : "Copy"}
-            </button>
-          </div>
+          <PasswordDisplay
+            password={password}
+            copied={copied}
+            onCopy={handleCopy}
+          />
 
           <PasswordStrength password={password} />
 
           {error && <p className="error-message">{error}</p>}
 
-          <div className="settings">
-            <div className="section-heading">
-              <h2>Password Settings</h2>
-
-              <span>{length} characters</span>
-            </div>
-
-            <div className="length-control">
-              <div className="length-label">
-                <label htmlFor="length">Password Length</label>
-
-                <strong>{length}</strong>
-              </div>
-
-              <input
-                id="length"
-                type="range"
-                min="4"
-                max="64"
-                value={length}
-                onChange={(event) => setLength(Number(event.target.value))}
-              />
-            </div>
-
-            <div className="options">
-              <label className="option">
-                <input
-                  type="checkbox"
-                  checked={options.lowercase}
-                  onChange={() => handleOptionChange("lowercase")}
-                />
-
-                <span>Lowercase</span>
-                <small>a-z</small>
-              </label>
-
-              <label className="option">
-                <input
-                  type="checkbox"
-                  checked={options.uppercase}
-                  onChange={() => handleOptionChange("uppercase")}
-                />
-
-                <span>Uppercase</span>
-                <small>A-Z</small>
-              </label>
-
-              <label className="option">
-                <input
-                  type="checkbox"
-                  checked={options.numbers}
-                  onChange={() => handleOptionChange("numbers")}
-                />
-
-                <span>Numbers</span>
-                <small>0-9</small>
-              </label>
-
-              <label className="option">
-                <input
-                  type="checkbox"
-                  checked={options.symbols}
-                  onChange={() => handleOptionChange("symbols")}
-                />
-
-                <span>Symbols</span>
-                <small>!@#$</small>
-              </label>
-
-              <label className="option">
-                <input
-                  type="checkbox"
-                  checked={options.excludeDuplicates}
-                  onChange={() => handleOptionChange("excludeDuplicates")}
-                />
-
-                <span>Exclude Duplicates</span>
-                <small>Safer</small>
-              </label>
-
-              <label className="option">
-                <input
-                  type="checkbox"
-                  checked={options.spaces}
-                  onChange={() => handleOptionChange("spaces")}
-                />
-
-                <span>Include Spaces</span>
-                <small>Optional</small>
-              </label>
-            </div>
-
-            <button
-              className="generate-button"
-              type="button"
-              onClick={handleGenerate}
-            >
-              Generate Password
-            </button>
-          </div>
+          <PasswordOptions
+            length={length}
+            options={options}
+            onLengthChange={setLength}
+            onOptionChange={handleOptionChange}
+            onGenerate={handleGenerate}
+          />
         </section>
       </div>
     </main>
