@@ -1,66 +1,53 @@
-# 🔐 Password Generator
+# Password Generator
 
-A simple and responsive web app to generate strong, customizable passwords. Built using HTML, CSS, and JavaScript.
+A secure and customizable password generator built with React and JavaScript.
 
-🔗 **Live Demo:** [instant-passwords.netlify.app](https://instant-passwords.netlify.app)
+The project was originally created using HTML, CSS, and JavaScript and was later rebuilt with React to provide a cleaner component-based architecture and a better user experience.
 
----
+## Live Demo
 
-## 🚀 Features
+Coming soon.
 
-- ✅ Generate secure passwords instantly
-- 🔢 Choose character types:
-  - Lowercase (a-z)
-  - Uppercase (A-Z)
-  - Numbers (0-9)
-  - Symbols (!@#$^+_)
-  - Spaces
-- ♻️ Option to exclude duplicate characters
-- 🔒 Adjustable password length (4–64)
-- 📋 One-click **Copy to Clipboard**
-- 📱 Fully responsive on all screen sizes
+## Features
 
----
+- Secure random password generation using the Web Crypto API
+- Password length from 4 to 64 characters
+- Lowercase characters
+- Uppercase characters
+- Numbers
+- Symbols
+- Optional spaces
+- Exclude duplicate characters
+- Prevent consecutive duplicate characters
+- Fisher-Yates password shuffling
+- Password strength indicator
+- Copy password to clipboard
+- Show/hide generated password
+- Regenerate password
+- Responsive design
+- Input validation and error handling
 
-## 🛠️ How to Run Locally
+## Tech Stack
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/password-generator.git
-   ```
+- React
+- JavaScript
+- Vite
+- CSS
+- Web Crypto API
 
-2. Open `index.html` in your browser.
+## Project Structure
 
-That’s it!
-
----
-
-## 📁 Project Structure
-
-```
-📦 password-generator/
- ┣ 📄 index.html
- ┣ 📄 style.css
- ┣ 📄 script.js
- ┗ 📄 README.md
-```
-
----
-
-## 🧠 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
-
----
-
-## 🙋‍♂️ Author
-
-**Chiranjeevi Kodimela**  
-📧 [chirukodimela@gmail.com]  
-🌐 [GitHub](https://github.com/chiranjeevi-kodimela)
+```text
+src/
+├── components/
+│   ├── PasswordDisplay.jsx
+│   ├── PasswordOptions.jsx
+│   └── PasswordStrength.jsx
+│
+├── utils/
+│   ├── passwordGenerator.js
+│   └── passwordStrength.js
+│
+├── App.jsx
+├── App.css
+└── main.jsx
