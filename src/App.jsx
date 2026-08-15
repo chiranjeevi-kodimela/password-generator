@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { generatePassword } from "./utils/passwordGenerator";
+import PasswordStrength from "./components/PasswordStrength";
 
 function App() {
   const [length, setLength] = useState(12);
@@ -16,6 +17,8 @@ function App() {
   const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
+
+  const [copied, setCopied] = useState(false);
 
   const handleOptionChange = (option) => {
     setOptions((previous) => ({
@@ -35,7 +38,30 @@ function App() {
 
     setPassword(result.password);
     setError("");
+    setCopied(false);
   };
+
+  const handleCopy = async () => {
+    if (!password) {
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(password);
+
+      setCopied(true);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    } catch {
+      setError("Unable to copy password.");
+    }
+  };
+
+  useEffect(() => {
+    handleGenerate();
+  }, []);
 
   return (
     <main className="app">
@@ -59,8 +85,12 @@ function App() {
               readOnly
             />
 
-            <button type="button">Copy</button>
+            <button type="button" onClick={handleCopy} disabled={!password}>
+              {copied ? "Copied!" : "Copy"}
+            </button>
           </div>
+
+          <PasswordStrength password={password} />
 
           {error && <p className="error-message">{error}</p>}
 
@@ -97,7 +127,6 @@ function App() {
                 />
 
                 <span>Lowercase</span>
-
                 <small>a-z</small>
               </label>
 
@@ -109,7 +138,6 @@ function App() {
                 />
 
                 <span>Uppercase</span>
-
                 <small>A-Z</small>
               </label>
 
@@ -121,7 +149,6 @@ function App() {
                 />
 
                 <span>Numbers</span>
-
                 <small>0-9</small>
               </label>
 
@@ -133,7 +160,6 @@ function App() {
                 />
 
                 <span>Symbols</span>
-
                 <small>!@#$</small>
               </label>
 
@@ -145,7 +171,6 @@ function App() {
                 />
 
                 <span>Exclude Duplicates</span>
-
                 <small>Safer</small>
               </label>
 
@@ -157,7 +182,6 @@ function App() {
                 />
 
                 <span>Include Spaces</span>
-
                 <small>Optional</small>
               </label>
             </div>

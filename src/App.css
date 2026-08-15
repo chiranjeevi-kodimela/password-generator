@@ -228,3 +228,64 @@ input {
     min-height: 44px;
   }
 }
+
+.strength {
+  margin-bottom: 24px;
+}
+
+.strength-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.strength-header span {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.strength-header strong {
+  font-size: 14px;
+}
+
+.strength-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.strength-bar span {
+  height: 6px;
+  border-radius: 10px;
+  background: #334155;
+}
+
+.strength-bar span.active {
+  background: #f8fafc;
+}
+
+.strength-weak .strength-header strong {
+  color: #fb7185;
+}
+
+.strength-fair .strength-header strong {
+  color: #fbbf24;
+}
+
+.strength-strong .strength-header strong {
+  color: #4ade80;
+}
+
+.strength-very-strong .strength-header strong {
+  color: #22d3ee;
+}
+
+.error-message {
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: #451a1a;
+  color: #fca5a5;
+  font-size: 14px;
+}
