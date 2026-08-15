@@ -1,0 +1,31 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "description": "A simple and responsive web app to generate strong, customizable passwords. Built using HTML, CSS, and JavaScript.",
+  "main": "script.js",
+  "scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiranjeevi-kodimela/password-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/chiranjeevi-kodimela/password-generator/issues"
+  },
+  "homepage": "https://github.com/chiranjeevi-kodimela/password-generator#readme",
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.5",
+    "vite": "^8.2.1"
+  }
+}
