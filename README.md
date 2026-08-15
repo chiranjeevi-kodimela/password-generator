@@ -6,7 +6,7 @@ The project was originally created using HTML, CSS, and JavaScript and was later
 
 ## Live Demo
 
-Coming soon.
+https://instantpasswords.netlify.app/
 
 ## Features
 
